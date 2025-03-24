@@ -1,8 +1,6 @@
-// font-family: "Roboto", sans-serif;
-//  font-family: "Kode Mono", monospace;
-// font-family: "Open Sans", sans-serif;
-//  font-family: "Madimi One", sans-serif;
+/** @format */
 
+// Font imports
 $kodeMono: "Kode Mono", monospace;
 $openSans: "Open Sans", sans-serif;
 $madimiOne: "Madimi One", sans-serif;
@@ -12,10 +10,35 @@ $madimiOne: "Madimi One", sans-serif;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   margin: 2% 10%;
   font-family: "Roboto", sans-serif;
 }
+
+#genre-filter {
+  padding: 10px;
+  font-family: $openSans;
+  font-size: 1em;
+  border: 2px solid #57c3ff;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 30px;
+
+  &:hover {
+    border-color: #0056b3;
+  }
+
+  &:focus {
+    border-color: #ffcc00;
+    box-shadow: 0px 0px 5px rgba(255, 204, 0, 0.8);
+  }
+}
+
 header {
   margin-bottom: 5%;
   img {
@@ -34,6 +57,7 @@ header {
   }
 }
 
+// Film collection grid
 #films-collection {
   .card {
     margin-bottom: 10%;
@@ -45,12 +69,12 @@ header {
 
     .text-content {
       padding: 2%;
+
       .genre {
         margin-bottom: 8%;
         span {
           margin-right: 5%;
           padding: 10px 15px;
-
           border-radius: 10%;
           font-family: $openSans;
           font-weight: 600;
@@ -63,52 +87,84 @@ header {
           }
         }
       }
+
       h2 {
         font-family: $kodeMono;
         font-size: 2em;
         font-weight: 400;
         margin-bottom: 1%;
       }
+
       h3 {
         font-family: $madimiOne;
         font-weight: 100;
         font-size: 1.1em;
         margin-bottom: 4%;
       }
+
       .date {
         text-align: right;
         font-size: 18px;
       }
+
       .cast {
         font-style: italic;
       }
+
       .description {
         padding-bottom: 5%;
         border-bottom: 1px solid grey;
       }
+
       p {
         margin-bottom: 4%;
       }
 
-      a {
-        color: gray;
-        font-size: 2em;
+      .card-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a {
+          color: gray;
+          font-size: 2em;
+        }
+        .delete-btn {
+          padding: 8px 12px;
+          font-size: 1em;
+          font-weight: 600;
+          font-family: $openSans;
+          background-color: #ff4d4d;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            background-color: #cc0000;
+          }
+
+          &:active {
+            transform: scale(0.95);
+          }
+        }
       }
     }
   }
 }
+
 @media screen and (min-width: 700px) {
   body {
     margin: 2% 12%;
-    font-family: "Roboto", sans-serif;
   }
+
   header {
     margin-bottom: 5%;
     img {
       max-width: 20%;
-      border-radius: 50%;
     }
   }
+
   #films-collection {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -119,10 +175,12 @@ header {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
       img {
         height: 40%;
         flex: 1;
       }
+
       .text-content {
         flex: 1;
         display: flex;
@@ -135,17 +193,12 @@ header {
 
 @media screen and (min-width: 1100px) {
   #films-collection {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    column-gap: 5%;
   }
 }
+
 @media screen and (min-width: 1625px) {
   #films-collection {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    column-gap: 5%;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
